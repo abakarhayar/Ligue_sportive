@@ -10,7 +10,7 @@ const Login = () => {
     const password = event.target.password.value;
 
     try {
-      const response = await axios.post("http://localhost:8080/login", {
+      const response = await axios.post("http://localhost:8080/users/login", {
         email,
         password,
       });
@@ -45,9 +45,9 @@ const Login = () => {
           placeholder="Password"
           required
         />
-        <button type="submit">Login</button>
+        <button type="submit">Connexion</button>
       </form>
-      <Link to="/register">Register</Link>
+      <Link to="/">Inscription</Link>
     </div>
   );
 };

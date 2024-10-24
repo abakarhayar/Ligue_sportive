@@ -4,8 +4,8 @@ import Produit from './Components/Produit/Produit';
 import Wrapper from'./Components/Wrapper/Wrapper';
 import Inscription from'./Components/Inscription/Inscription';
 import Connexion from'./Components/Connexion/Connexion';
-import GererAdherents from'./Components/GererAdherents/GererAdherents';
-import GarerProduits from'./Components/GererProduits/GererProduits';
+import GererAdherents from'./Components/Admin/GererAdherents/GererAdherents';
+import GarerProduits from'./Components/Admin/GererProduits/GererProduits';
 import Detail from'./Components/Detail/Detail';
 
 function App() {

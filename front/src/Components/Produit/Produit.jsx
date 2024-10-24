@@ -1,14 +1,14 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
 import {Link} from "react-router-dom"
-import './Home.css';
+import './Produit.css';
 
 const Produit = () => {
   
   const [produits, setProduits] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:8080/").then((response) => {
+    axios.get("http://localhost:8080/materiels").then((response) => {
       setProduits(response.data);
     });
   }, []);

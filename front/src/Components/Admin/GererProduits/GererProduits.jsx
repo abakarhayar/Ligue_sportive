@@ -1,4 +1,8 @@
-const Home = () => {
+import React, {useEffect, useState} from "react";
+import axios from "axios";
+import './GererProduits.css';
+
+const GererProduits = () => {
   
     const [products, setProducts] = useState([]);
     const [editingProduct, setEditingProduct] = useState(null);
@@ -8,7 +12,7 @@ const Home = () => {
     const [editAvailable, setEditAvailable] = useState("");
   
     useEffect(() => {
-      axios.get("http://localhost:8080/").then((response) => {
+      axios.get("http://localhost:8080/materiels").then((response) => {
         setProducts(response.data);
       });
     }, []);
@@ -21,7 +25,7 @@ const Home = () => {
         if (!confirmation) return;
   
         const response = await axios.delete(
-          `http://localhost:8080/${productId}`
+          `http://localhost:8080/materiels/${productId}`
         );
   
         if (response.status === 200) {
@@ -86,10 +90,10 @@ const Home = () => {
               <div className="product-bloc">
               {editingProduct === product._id ? (
                 <form onSubmit={updateProduct}>
-                  <input className="newproduit-name" type="text" value={editNom} onChange={(e) => setEditNom(e.target.value)} required placeholder="Nom du produit"/>
-                  <input className="newproduit-category" type="text" value={editPrix} onChange={(e) => setEditPrix(e.target.value)} required placeholder="Catégorie du produit"/>
+                  <input className="newproduit-name" type="text" value={editName} onChange={(e) => setEditName(e.target.value)} required placeholder="Nom du produit"/>
+                  <input className="newproduit-category" type="text" value={editCategory} onChange={(e) => setEditCategory(e.target.value)} required placeholder="Catégorie du produit"/>
                   <textarea className="newproduit-description" value={editDescription} onChange={(e) => setEditDescription(e.target.value)} placeholder="Description du produit"/>
-                  <input className="newproduct-available" type="text" value={editQuantite} onChange={(e) => setEditQuantite(e.target.value)} required placeholder="Quantite de produit"/>
+                  <input className="newproduct-available" type="text" value={editAvailable} onChange={(e) => setEditAvailable(e.target.value)} required placeholder="Quantite de produit"/>
                   <button type="submit">Update Product</button>
                   <p></p>
                 </form>
@@ -111,5 +115,5 @@ const Home = () => {
     );
   };
   
-  export default Home;
+  export default GererProduits;
 

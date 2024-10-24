@@ -12,7 +12,7 @@ const Register = () => {
     const role = event.target.role.value;
 
     try {
-      const response = await fetch("http://localhost:8080/register", {
+      const response = await fetch("http://localhost:8080/users/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -32,7 +32,7 @@ const Register = () => {
   };
   return (
     <div>
-      <h1>Register</h1>
+      <h1>Inscription</h1>
       <form onSubmit={handleSubmit}>
         <input type="text" name="name" placeholder="Name" required />
         <input type="email" name="email" placeholder="Email" required />
@@ -42,10 +42,10 @@ const Register = () => {
           placeholder="Password"
           required
         />
-        <input type="number" name="role" placeholder="Role" required />
-        <button type="submit">Register</button>
+        <input type="text" name="role" placeholder="Role" required />
+        <button type="submit">Inscription</button>
       </form>
-      <Link to="/">Login</Link>
+      <Link to="/Connexion">Inscription</Link>
     </div>
   );
 };
