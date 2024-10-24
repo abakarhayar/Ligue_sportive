@@ -1,0 +1,48 @@
+
+.newpublication-bloc, .my-publication-bloc, .my-publication-bloc-content {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    margin: 10px;
+}
+
+.newpublication-bloc {
+    width: 300px;
+}
+
+.my-publication-bloc {
+    width: 300px;
+}
+
+.my-publication-bloc-content {
+    width: 250px;
+}
+
+.my-publication-date {
+    color: #4a4a4a; /* Couleur gris foncé */
+    font-size: 0.8em; /* Taille un peu plus petite que le texte principal */
+}
+
+.newpublication-titre {
+    height:30px;
+    width: 280px;
+    font-size: 1.4em
+}
+
+.newpublication_content {
+    height:100px;
+    width: 280px;
+}
+
+
+
+
+
+
+
+
+
+
+
