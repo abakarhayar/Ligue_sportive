@@ -1,0 +1,23 @@
+
+.Navbarnav {
+    background-color: #1e09db; /* Couleur de fond de la barre de navigation */
+    padding: 10px;
+}
+
+.Navbarul {
+    list-style-type: none; /* Enlève les puces des éléments de la liste */
+    display: flex; /* Utilise flexbox pour aligner les éléments horizontalement */
+    justify-content: space-around; /* Espace entre les éléments */
+}
+
+.navbarlink {
+    color: white;
+    text-decoration: none; /* Enlève le soulignement des liens */
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.navbarlink:hover, .active {
+    background-color: #e40e0e; /* Change la couleur au survol */
+}
+
