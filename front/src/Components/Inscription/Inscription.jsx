@@ -22,7 +22,7 @@ const Register = () => {
 
       if (response.ok) {
         alert("Registration successful");
-        window.location.href = "/";
+        window.location.href = "/connexion";
       } else {
         console.error("Registration failed");
       }
@@ -45,7 +45,7 @@ const Register = () => {
         <input type="text" name="role" placeholder="Role" required />
         <button type="submit">Inscription</button>
       </form>
-      <Link to="/Connexion">Inscription</Link>
+      <Link to="/connexion">Connexion</Link>
     </div>
   );
 };

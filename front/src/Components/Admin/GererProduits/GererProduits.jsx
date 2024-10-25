@@ -16,6 +16,36 @@ const GererProduits = () => {
         setProducts(response.data);
       });
     }, []);
+
+    const createProduct = async (event) => {
+      event.preventDefault();
+  
+      const name = event.target.name.value;
+      const category = event.target.category.value;
+      const description = event.target.description.value;
+      const available = event.target.available.value;
+  
+      try {
+        const response = await axios.post(
+          "http://localhost:8080/materiels",
+          {
+            name,
+            category,
+            description,
+            available,
+          }
+        );
+  
+        if (response.status === 201) {
+          alert("Product created");
+          setProducts([...products, response.data]);
+        } else {
+          console.error("Product creation failed");
+        }
+      } catch (error) {
+        console.error("Error during Product creation:", error);
+      }
+    };
   
     const deleteProduct = async (productId) => {
       try {
@@ -83,6 +113,14 @@ const GererProduits = () => {
   
     return (
       <ul>
+        <h1>Formulaire: nouveau produit</h1>
+        <form onSubmit={createProduct} className="newproduct-bloc">
+          <input className="newproduct-name" type="text" name="name" placeholder="Nom du produit" required />
+          <input className="newproduct-category" type="text" name="category" placeholder="Catégorie du produit" required/>
+          <textarea className="newproduct-description" name="description" placeholder="Description du produit" required />
+          <input className="newproduct-available" type="text" name="available" placeholder="Reste-il des produits ?" required />
+          <button type="submit">Ajouter le produit</button>
+        </form>
         <h1>Liste des produits:</h1>
         {products.map((product) => {
           return(
@@ -90,17 +128,17 @@ const GererProduits = () => {
               <div className="product-bloc">
               {editingProduct === product._id ? (
                 <form onSubmit={updateProduct}>
-                  <input className="newproduit-name" type="text" value={editName} onChange={(e) => setEditName(e.target.value)} required placeholder="Nom du produit"/>
-                  <input className="newproduit-category" type="text" value={editCategory} onChange={(e) => setEditCategory(e.target.value)} required placeholder="Catégorie du produit"/>
-                  <textarea className="newproduit-description" value={editDescription} onChange={(e) => setEditDescription(e.target.value)} placeholder="Description du produit"/>
-                  <input className="newproduct-available" type="text" value={editAvailable} onChange={(e) => setEditAvailable(e.target.value)} required placeholder="Quantite de produit"/>
+                  <input className="newproduct-name" type="text" value={editName} onChange={(e) => setEditName(e.target.value)} required placeholder="Nom du produit"/>
+                  <input className="newproduct-category" type="text" value={editCategory} onChange={(e) => setEditCategory(e.target.value)} required placeholder="Catégorie du produit"/>
+                  <textarea className="newproduct-description" value={editDescription} onChange={(e) => setEditDescription(e.target.value)} placeholder="Description du produit"/>
+                  <input className="newproduct-available" type="text" value={editAvailable} onChange={(e) => setEditAvailable(e.target.value)} required placeholder="Reste-il des produits ?"/>
                   <button type="submit">Update Product</button>
                   <p></p>
                 </form>
               ) : (
                 <div>
                   <h2 className="product-name">{product.name}</h2>
-                  <p className="product-category">category: {product.category}€</p>
+                  <p className="product-category">category: @{product.category}</p>
                   <p className="product-bloc-description">{product.description}</p>
                   <p >available: {product.available}</p>
                 </div>

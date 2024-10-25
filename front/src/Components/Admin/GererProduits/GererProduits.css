@@ -1,3 +1,14 @@
+
+.newproduct-bloc {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    width: 300px;
+    margin: 10px;
+}
+
 .product-bloc {
     background-color: #f9f9f9;
     border: 1px solid #ddd;
@@ -29,6 +40,11 @@
 .newproduct-name {
     height:30px;
     font-size: 1.4em
+}
+
+.newproduct-category {
+    height:25px;
+    font-size: 1.2em
 }
 
 .newproduct-description {

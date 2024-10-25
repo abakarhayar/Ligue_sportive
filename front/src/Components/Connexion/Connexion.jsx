@@ -22,7 +22,7 @@ const Login = () => {
         localStorage.setItem("userId", userId);
         
         alert("Login successful");
-        window.location.href = "/Produit";
+        window.location.href = "/produit";
       } else {
         console.error("Login failed");
       }

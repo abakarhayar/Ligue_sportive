@@ -14,8 +14,8 @@ function App() {
       <Wrapper>
         <Routes>
           <Route path="/" element={<Inscription/>} />
-          <Route path="/Connexion" element={<Connexion/>} />
-          <Route path="/Produit" element={<Produit/>} />
+          <Route path="/connexion" element={<Connexion/>} />
+          <Route path="/produit" element={<Produit/>} />
           <Route path="/gerer_adherents" element={<GererAdherents/>} />
           <Route path="/gerer_produits" element={<GarerProduits/>} />
           <Route path="/detail" element={<Detail/>} />

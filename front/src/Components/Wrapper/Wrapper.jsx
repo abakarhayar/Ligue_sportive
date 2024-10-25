@@ -5,7 +5,7 @@ const Wrapper =({children}) =>{
     
     const currentPath = window.location.pathname;
 
-    if (currentPath === "/" || currentPath === "/Connexion") {
+    if (currentPath === "/" || currentPath === "/connexion") {
         return <>{children}</>;
     }
 

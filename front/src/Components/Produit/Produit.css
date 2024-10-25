@@ -1,5 +1,5 @@
 
-.produit-bloc {
+.product-bloc {
     background-color: #f9f9f9;
     border: 1px solid #ddd;
     border-radius: 8px;
@@ -9,7 +9,11 @@
     margin: 10px;
 }
 
-.produit-bloc-content {
+.product-name, .product-category {
+    text-align: center;
+}
+
+.product-bloc-description {
     background-color: #f9f9f9;
     border: 1px solid #ddd;
     border-radius: 8px;
@@ -17,11 +21,6 @@
     padding: 10px;
     width: 250px; /* Ajustez selon vos préférences */
     margin: 10px;
-}
-
-.category {
-    font-style: italic;
-    color: darkblue
 }
 
 

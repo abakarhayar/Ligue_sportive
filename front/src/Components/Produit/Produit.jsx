@@ -19,11 +19,11 @@ const Produit = () => {
       {produits.map((produit) => {
         return(
           <li key={produit.id}>
-            <div className="produit-bloc">
-              <h2>{produit.name}</h2>
-              <p className="category">{produit.category.name}</p>
-              <p className="produit-bloc-content">{produit.description}</p>
-              <p>{produit.available}</p>
+            <div className="product-bloc">
+              <h2 className="product-name">{produit.name}</h2>
+              <p className="product-category">Category: @{produit.category}</p>
+              <p className="product-bloc-description">{produit.description}</p>
+              <p>Available: {produit.available}</p>
             </div>
           </li>
         );
