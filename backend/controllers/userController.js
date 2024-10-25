@@ -26,6 +26,19 @@ exports.registerUser = async (req, res) => {
   }
 };
 
+exports.getUserById = async (req, res) => {
+    try {
+      const userId = req.params.id;
+      const user = await User.findById(userId);
+      if (!user) {
+        return res.status(404).json({ message: 'Utilisateur non trouvé' });
+      }
+      res.status(200).json(user);
+    } catch (error) {
+      res.status(500).json({ message: error.message });
+    }
+  };
+
 // Connexion d'un utilisateur
 exports.loginUser = async (req, res) => {
     try {

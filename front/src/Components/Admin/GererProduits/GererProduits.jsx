@@ -85,7 +85,7 @@ const GererProduits = () => {
       event.preventDefault();
       try {
         const response = await axios.put(
-          `http://localhost:8080/${editingProduct}`,
+          `http://localhost:8080/materiels/${editingProduct}`,
           {
             name: editName,
             description: editDescription,
