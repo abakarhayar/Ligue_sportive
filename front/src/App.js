@@ -13,8 +13,9 @@ function App() {
     <BrowserRouter>
       <Wrapper>
         <Routes>
-          <Route path="/" element={<Inscription/>} />
+          <Route path="/" element={<Connexion/>} />
           <Route path="/connexion" element={<Connexion/>} />
+          <Route path="/Inscription" element={<Inscription/>} />
           <Route path="/produit" element={<Produit/>} />
           <Route path="/gerer_adherents" element={<GererAdherents/>} />
           <Route path="/gerer_produits" element={<GarerProduits/>} />

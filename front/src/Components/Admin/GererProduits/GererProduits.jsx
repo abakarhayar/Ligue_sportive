@@ -112,44 +112,67 @@ const GererProduits = () => {
     };
   
     return (
-      <ul>
+      <>      
         <h1>Formulaire: nouveau produit</h1>
         <form onSubmit={createProduct} className="newproduct-bloc">
           <input className="newproduct-name" type="text" name="name" placeholder="Nom du produit" required />
           <input className="newproduct-category" type="text" name="category" placeholder="Catégorie du produit" required/>
           <textarea className="newproduct-description" name="description" placeholder="Description du produit" required />
-          <input className="newproduct-available" type="text" name="available" placeholder="Reste-il des produits ?" required />
-          <button type="submit">Ajouter le produit</button>
+          <div><span>Reste-il des produits ?   </span> 
+                      <select 
+                    name="available"
+                    id="available"
+                    required
+                >
+                    <option value="oui">oui</option>
+                    <option value="non">non</option>
+                </select>
+          </div>
+
+          {/* <input className="newproduct-available" type="text" name="available" placeholder="Reste-il des produits ?" required /> */}
+          <button className="button-add" type="submit">Ajouter le produit</button>
         </form>
         <h1>Liste des produits:</h1>
-        {products.map((product) => {
-          return(
-            <li key={product.id}>
-              <div className="product-bloc">
-              {editingProduct === product._id ? (
-                <form onSubmit={updateProduct}>
-                  <input className="newproduct-name" type="text" value={editName} onChange={(e) => setEditName(e.target.value)} required placeholder="Nom du produit"/>
-                  <input className="newproduct-category" type="text" value={editCategory} onChange={(e) => setEditCategory(e.target.value)} required placeholder="Catégorie du produit"/>
-                  <textarea className="newproduct-description" value={editDescription} onChange={(e) => setEditDescription(e.target.value)} placeholder="Description du produit"/>
-                  <input className="newproduct-available" type="text" value={editAvailable} onChange={(e) => setEditAvailable(e.target.value)} required placeholder="Reste-il des produits ?"/>
-                  <button type="submit">Update Product</button>
-                  <p></p>
-                </form>
-              ) : (
-                <div>
-                  <h2 className="product-name">{product.name}</h2>
-                  <p className="product-category">category: @{product.category}</p>
-                  <p className="product-bloc-description">{product.description}</p>
-                  <p >available: {product.available}</p>
+        <ul className="flex-d">
+          {products.map((product) => {
+            return(
+              <li key={product.id}>
+                <div className="product-bloc">
+                {editingProduct === product._id ? (
+                  <form onSubmit={updateProduct}>
+                    <input className="newproduct-name" type="text" value={editName} onChange={(e) => setEditName(e.target.value)} required placeholder="Nom du produit"/>
+                    <input className="newproduct-category" type="text" value={editCategory} onChange={(e) => setEditCategory(e.target.value)} required placeholder="Catégorie du produit"/>
+                    <textarea className="newproduct-description" value={editDescription} onChange={(e) => setEditDescription(e.target.value)} placeholder="Description du produit"/>
+                    <select
+                    name="role"
+                    id="role"
+                    value={editAvailable}
+                    onChange={(e) => setEditAvailable(e.target.value)}
+                    required
+                >
+                    <option value="oui">oui</option>
+                    <option value="non">non</option>
+                </select>
+                    {/* <input className="newproduct-available" type="text" value={editAvailable} onChange={(e) => setEditAvailable(e.target.value)} required placeholder="Reste-il des produits ?"/> */}
+                    <button className="button-add" type="submit">Update Product</button>
+                    <p></p>
+                  </form>
+                ) : (
+                  <div>
+                    <h2 className="product-name">{product.name}</h2>
+                    <p className="product-category">category: @{product.category}</p>
+                    <p className="product-bloc-description">{product.description}</p>
+                    <p >available:  <strong>{product.available}</strong></p>
+                  </div>
+                )}
+                  <button className="button-edit" onClick={() => handleEditClick(product)} >Modifier</button>
+                  <button className="button-delete" onClick={() => deleteProduct(product._id)} >Supprimer</button>
                 </div>
-              )}
-                <button onClick={() => handleEditClick(product)} >Modifier</button>
-                <button onClick={() => deleteProduct(product._id)} >Supprimer</button>
-              </div>
-            </li>
-          );
-        })}
-      </ul>
+              </li>
+            );
+          })}
+        </ul>
+      </>
     );
   };
   

@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
-import {Link} from "react-router-dom"
 import './GererAdherents.css';
 
 const GererAdherents = () => {
@@ -40,21 +39,23 @@ const GererAdherents = () => {
   };
 
   return (
-    <ul>
+    <>
       <h1>Liste des utilisateur:</h1>
-      {users.map((user) => {
-        return(
-          <li key={user.id}>
-            <div className="User-bloc">
-              <h2 >{user.name}</h2>
-              <p>Email: <span className="User-Email">{user.email}</span></p>
-              <p >Rôle: {user.role}</p>
-              <button onClick={() => deleteUsers(user._id)} >Supprimer</button>
-            </div>
-          </li>
-        );
-      })}
-    </ul>
+      <ul className="flex-d">
+        {users.map((user) => {
+          return(
+            <li key={user.id}>
+              <div className="User-bloc">
+                <h2 >{user.name}</h2>
+                <p>Email: <span className="User-Email">{user.email}</span></p>
+                <p >Rôle: {user.role}</p>
+                <button className="button-delete" onClick={() => deleteUsers(user._id)} >Supprimer</button>
+              </div>
+            </li>
+          );
+        })}
+      </ul>
+    </>
   );
 };
 
