@@ -42,7 +42,10 @@ const Register = () => {
           placeholder="Password"
           required
         />
-        <input type="text" name="role" placeholder="Role" required />
+        <select name="role" id="role" required>
+          <option value="user">User</option>
+          <option value="admin">Admin</option>
+        </select>
         <button type="submit">Inscription</button>
       </form>
       <Link to="/connexion">Connexion</Link>

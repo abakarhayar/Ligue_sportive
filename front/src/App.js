@@ -6,7 +6,7 @@ import Inscription from'./Components/Inscription/Inscription';
 import Connexion from'./Components/Connexion/Connexion';
 import GererAdherents from'./Components/Admin/GererAdherents/GererAdherents';
 import GarerProduits from'./Components/Admin/GererProduits/GererProduits';
-import Detail from'./Components/Detail/Detail';
+import Profil from'./Components/Detail/Detail';
 
 function App() {
   return (
@@ -16,9 +16,9 @@ function App() {
           <Route path="/" element={<Inscription/>} />
           <Route path="/connexion" element={<Connexion/>} />
           <Route path="/produit" element={<Produit/>} />
+          <Route path="/profil" element={<Profil/>} />
           <Route path="/gerer_adherents" element={<GererAdherents/>} />
           <Route path="/gerer_produits" element={<GarerProduits/>} />
-          <Route path="/detail" element={<Detail/>} />
         </Routes>
       </Wrapper>
     </BrowserRouter>
