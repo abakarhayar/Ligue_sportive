@@ -6,7 +6,7 @@ import Inscription from'./Components/Inscription/Inscription';
 import Connexion from'./Components/Connexion/Connexion';
 import GererAdherents from'./Components/Admin/GererAdherents/GererAdherents';
 import GarerProduits from'./Components/Admin/GererProduits/GererProduits';
-import Profil from'./Components/Detail/Detail';
+import Profil from'./Components/Profil/Profil';
 
 function App() {
   return (
