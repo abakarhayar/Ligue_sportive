@@ -28,31 +28,25 @@ exports.registerUser = async (req, res) => {
 
 // Connexion d'un utilisateur
 exports.loginUser = async (req, res) => {
-  try {
-    const { email, password } = req.body;
-
-    // Vérifier si l'utilisateur existe
-    const user = await User.findOne({ email });
-    if (!user) {
-      return res.status(400).json({ message: 'Identifiants invalides' });
+    try {
+      const user = await User.findOne({ email: req.body.email });
+   
+      if (!user) {
+        return res.status(404).send({ error: "User not found" });
+      }
+   
+      const correspondance = await bcrypt.compare(req.body.password, user.password);
+   
+      if (!correspondance) {
+        return res.status(401).send({ error: "Invalid password" });
+      }
+   
+      res.status(200).json({ message: "Connexion réussie", userId: user._id });
+    } catch (error) {
+      res.status(400).send({ error: error.message });
     }
-
-    // Vérifier le mot de passe
-    const isMatch = await bcrypt.compare(password, user.password);
-    if (!isMatch) {
-      return res.status(400).json({ message: 'Identifiants invalides' });
-    }
-
-    // Générer un token JWT
-    const token = jwt.sign({ id: user._id, role: user.role }, process.env.JWT_SECRET, {
-      expiresIn: '1h',
-    });
-
-    res.status(200).json({ token, user: { id: user._id, name: user.name, email: user.email, role: user.role } });
-  } catch (error) {
-    res.status(400).json({ message: error.message });
-  }
-};
+  };
+   
 
 // Obtenir la liste des utilisateurs (admin seulement)
 exports.getUsers = async (req, res) => {

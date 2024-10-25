@@ -7,6 +7,7 @@ const userController = require('../controllers/userController');
 router.post('/register', userController.registerUser); // Inscription d'un utilisateur
 router.post('/login', userController.loginUser); // Connexion d'un utilisateur
 router.get('/', userController.getUsers); // Obtenir tous les utilisateurs
+router.get('/:id', userController.getUserById); // Obtenir les détails d'un utilisateur par ID
 router.put('/:id', userController.updateUser); // Mettre à jour un utilisateur
 router.delete('/:id', userController.deleteUser); // Supprimer un utilisateur
 

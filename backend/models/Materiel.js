@@ -5,7 +5,7 @@ const materielSchema = new mongoose.Schema({
   name: { type: String, required: true },
   description: { type: String, required: true },
   category: { type: String, required: true },
-  available: { type: Boolean, default: true },
+  available: { type: String, enum: ['oui', 'non'], default: 'oui' }, 
 });
 
 module.exports = mongoose.model('Materiel', materielSchema);
