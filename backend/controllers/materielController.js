@@ -37,16 +37,19 @@ exports.getMaterielById = async (req, res) => {
 // Mettre à jour un matériel
 exports.updateMateriel = async (req, res) => {
   try {
-    const { name, description, category, available } = req.body;
-    const updatedMateriel = await Materiel.findByIdAndUpdate(
-      req.params.id,
-      { name, description, category, available },
-      { new: true }
-    );
-    if (!updatedMateriel) return res.status(404).json({ message: "Matériel non trouvé" });
-    res.status(200).json(updatedMateriel);
+      const materiel = await Materiel.findByIdAndUpdate(
+          req.params.id,
+          req.body,
+          {
+              new: true,
+          }
+      );
+      if (!materiel) {
+          return res.status(404).send({ error: "Materiel introuvable" });
+      }
+      res.status(200).send(materiel);
   } catch (error) {
-    res.status(400).json({ message: error.message });
+      res.status(400).send({ error: error.message });
   }
 };
 
