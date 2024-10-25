@@ -1,6 +1,7 @@
 import axios from "axios";
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
+import './Connexion.css'
 
 const Login = () => {
 
@@ -35,20 +36,25 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <h1>Login</h1>
-      <form onSubmit={handleSubmit}>
-        <input type="email" name="email" placeholder="Email" required />
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          required
-        />
-        <button type="submit">Connexion</button>
-      </form>
-      <Link to="/">Inscription</Link>
+    <div className="container-lgn">
+      <div className="auth-container">
+        <h2>Connexion</h2>
+        <form onSubmit={handleSubmit}>
+          <input type="email" name="email" placeholder="Email" required />
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            required
+          />
+          <button type="submit">Connexion</button>
+        </form>
+        <div className="redirect-link">
+            Pas encore de compte ? <Link to="/Inscription">Inscription</Link>
+        </div>
+      </div>
     </div>
+
   );
 };
 

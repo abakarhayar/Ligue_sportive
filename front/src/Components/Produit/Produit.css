@@ -1,4 +1,7 @@
-
+.products-list{
+    display: flex;
+    flex-direction: row;
+}
 .product-bloc {
     background-color: #f9f9f9;
     border: 1px solid #ddd;
